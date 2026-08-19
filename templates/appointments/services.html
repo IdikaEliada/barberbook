@@ -1,0 +1,13 @@
+{% extends "appointments/base.html" %}
+{% block title %}Services{% endblock %}
+{% block content %}
+<h2>Our Services</h2>
+{% for service in services %}
+  <div class="card">
+    <strong>{{ service.name }}</strong> — ₦{{ service.price }} ({{ service.duration }} min)
+    <p>{{ service.description }}</p>
+  </div>
+{% empty %}
+  <p>No services available yet.</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "appointments/base.html" %}
+{% block title %}Cancel Appointment{% endblock %}
+{% block content %}
+<h2>Cancel Appointment</h2>
+<p>Are you sure you want to cancel your appointment with {{ appointment.barber.name }} on {{ appointment.date }} at {{ appointment.time }}?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn">Yes, Cancel</button>
+  <a href="{% url 'my_appointments' %}" class="btn btn-outline">Back</a>
+</form>
+{% endblock %}

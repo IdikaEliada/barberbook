@@ -1,0 +1,13 @@
+{% extends "appointments/base.html" %}
+{% block title %}Barbers{% endblock %}
+{% block content %}
+<h2>Our Barbers</h2>
+{% for barber in barbers %}
+  <div class="card">
+    <strong>{{ barber.name }}</strong> — {{ barber.specialty }}
+    <p>{{ barber.phone }}</p>
+  </div>
+{% empty %}
+  <p>No barbers available yet.</p>
+{% endfor %}
+{% endblock %}

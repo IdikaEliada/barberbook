@@ -1,0 +1,23 @@
+{% extends "appointments/base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<table>
+  <tr><th>Customer</th><th>Service</th><th>Barber</th><th>Date</th><th>Time</th><th>Status</th><th></th></tr>
+  {% for a in appointments %}
+  <tr>
+    <td>{{ a.customer.username }}</td>
+    <td>{{ a.service.name }}</td>
+    <td>{{ a.barber.name }}</td>
+    <td>{{ a.date }}</td>
+    <td>{{ a.time }}</td>
+    <td class="status-{{ a.status }}">{{ a.get_status_display }}</td>
+    <td>
+      {% if a.status == "pending" %}
+      <a href="{% url 'confirm_appointment' a.pk %}">Confirm</a>
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

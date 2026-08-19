@@ -1,0 +1,10 @@
+{% extends "appointments/base.html" %}
+{% block title %}Book Appointment{% endblock %}
+{% block content %}
+<h2>Book an Appointment</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn">Book Appointment</button>
+</form>
+{% endblock %}
